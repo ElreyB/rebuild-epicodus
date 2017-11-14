@@ -28,8 +28,15 @@
       <%= yield %>
     </div>
     <footer>
-      <nav>
-        <%= yield(:nav_footer) %>
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a href="#">Admin</a>
+          </div>
+          <ul class="nav navbar-nav navbar-left">
+            <%= yield(:nav_footer) %>
+          </ul>
+        </div>
       </nav>
     </footer>
   </body>

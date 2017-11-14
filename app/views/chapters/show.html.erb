@@ -4,9 +4,25 @@
 
 <h3><%= @chapter.name %></h3>
 
+<% if @chapter.sections.any? %>
+  <ul>
+    <% @chapter.sections.each do |section| %>
+      <li>
+        (Week <%= section.number %>) <%= section.name %> |
+        <%= link_to "Edit", edit_chapter_section_path(@chapter, section) %> |
+        <%= link_to "Delete", chapter_section_path(@chapter, section),
+        :data => {:confirm => "Are you sure?",
+          :method => "delete"} %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Currently there are no sections for this <%= @chapter.name %> </p>
+<% end %>
 <% content_for(:nav_footer) do %>
-  <p><%= link_to "Edit", edit_chapter_path(@chapter) %></p>
-  <p><%= link_to "Delete", chapter_path(@chapter),
+  <li><%= link_to "Edit Chapter", edit_chapter_path(@chapter) %></li>
+  <li><%= link_to "Delete Chapter", chapter_path(@chapter),
                          :data => {:confirm => "You sure?",
-                                   :method => "delete"} %></p>
+                                   :method => "delete"} %></li>
+  <li><%= link_to "Add Section", new_chapter_section_path(@chapter) %></li>
 <% end %>
