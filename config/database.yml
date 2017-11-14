@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: rebuild-epicodus_development
+  database: rebuild_epicodus_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: rebuild-epicodus
+  #username: rebuild_epicodus
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rebuild-epicodus_test
+  database: rebuild_epicodus_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: rebuild-epicodus_production
-  username: rebuild-epicodus
-  password: <%= ENV['REBUILD-EPICODUS_DATABASE_PASSWORD'] %>
+  database: rebuild_epicodus_production
+  username: rebuild_epicodus
+  password: <%= ENV['rebuild_epicodus_DATABASE_PASSWORD'] %>
