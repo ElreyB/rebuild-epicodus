@@ -1,3 +1,5 @@
 class Section < ActiveRecord::Base
-  validates :name, :number, :presence => true 
+  has_many :lessons
+  belongs_to :chapter
+  validates :name, :number, :presence => true
 end
