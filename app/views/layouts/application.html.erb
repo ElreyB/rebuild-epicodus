@@ -9,12 +9,14 @@
   </head>
 
   <body>
-    <%= flash[:alert] %>
-    <%= flash[:notice] %>
-    <nav>
-      <%= yield(:nav_lesson) %>
-    </nav>
-    <%= yield %>
+    <div class="container">
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+      <nav>
+        <%= yield(:nav_lesson) %>
+      </nav>
+      <%= yield %>
+    </div>
     <footer>
       <nav>
         <%= yield(:nav_footer) %>
