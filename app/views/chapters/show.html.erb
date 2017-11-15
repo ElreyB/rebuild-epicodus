@@ -24,7 +24,7 @@
             <% section.lessons.each do |lesson| %>
             <span class="hide lesson-item" data-js-child="<%=section.number%>">
               <li>
-                  (Week <%= lesson.number %>) <%= lesson.name %>
+                  (Week <%= lesson.number %>) <%= link_to lesson.name, section_lesson_path(section, lesson) %>
                 <span class="admin hide">
                   |
                   <%= link_to "Edit", edit_section_lesson_path(section, lesson) %> |

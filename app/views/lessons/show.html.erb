@@ -3,11 +3,11 @@
 <% end %>
 
 <h2>
-  <%= @chapter.name %> / <%= @section.name %> / <%= @lesson.name %>
+  <%= @chapter.name %> / <%= link_to @section.name, %> / <%= @lesson.name %>
 </h2>
 
 <ul class="nav nav-tabs">
-  <li class="active">Text</li>
+  <li class="active"><h3>Text</h3></li>
 </ul>
 <p><%= @lesson.text %></p>
 <br>

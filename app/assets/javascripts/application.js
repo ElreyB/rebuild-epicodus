@@ -21,15 +21,17 @@
 $(document).ready(function() {
 
 
-  $(".open-admin").click((e) => {
+
+  $(document).on("click", '.open-admin', function(e){
     $(".admin").toggleClass("hide");
     e.preventDefault();
   });
 
-  $('[data-js-hide-link]').click(function(event){
+  $(document).on("click", '[data-js-hide-link]', function(event){
     let indexNumber =
      $(this).attr("data-js-index");
     $(`[data-js-child="${indexNumber}"]`).toggleClass("hide");
     event.preventDefault();
   });
+
 });
