@@ -8,11 +8,16 @@
   <ul>
     <% @chapter.sections.each do |section| %>
       <li>
-        (Week <%= section.number %>) <%= section.name %> |
-        <%= link_to "Edit", edit_chapter_section_path(@chapter, section) %> |
-        <%= link_to "Delete", chapter_section_path(@chapter, section),
-        :data => {:confirm => "Are you sure?",
-          :method => "delete"} %>
+        <span class="section-item">
+          (Week <%= section.number %>) <%= section.name %>
+        </span>
+        <span class="admin hide">  
+          |
+          <%= link_to "Edit", edit_chapter_section_path(@chapter, section) %> |
+          <%= link_to "Delete", chapter_section_path(@chapter, section),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+        </span>
       </li>
     <% end %>
   </ul>
