@@ -19,14 +19,17 @@
 
 
 $(document).ready(function() {
-  $(".section-item").click(function(event){
 
-    console.log('You clicked the Hide link');
-    event.preventDefault();
-  });
 
   $(".open-admin").click((e) => {
     $(".admin").toggleClass("hide");
     e.preventDefault();
+  });
+
+  $('[data-js-hide-link]').click(function(event){
+    let indexNumber =
+     $(this).attr("data-js-index");
+    $(`[data-js-child="${indexNumber}"]`).toggleClass("hide");
+    event.preventDefault();
   });
 });

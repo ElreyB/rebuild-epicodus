@@ -8,9 +8,10 @@
   <ul>
     <% @chapter.sections.each do |section| %>
       <li>
-        <span class="section-item">
-          (Week <%= section.number %>) <%= section.name %>
-        </span>
+
+          (Week <%= section.number %>) <%= link_to section.name , chapter_path, data: {'js-hide-link' => true, 'js-index' => section.number} %>
+
+
         <span class="admin hide">
           |
           <%= link_to "Edit", edit_chapter_section_path(@chapter, section) %> |
@@ -21,22 +22,23 @@
         <% if section.lessons.any? %>
           <ul>
             <% section.lessons.each do |lesson| %>
+            <span class="hide lesson-item" data-js-child="<%=section.number%>">
               <li>
-                <span class="lesson-item">
                   (Week <%= lesson.number %>) <%= lesson.name %>
-                </span>
                 <span class="admin hide">
                   |
                   <%= link_to "Edit", edit_section_lesson_path(section, lesson) %> |
                   <%= link_to "Delete", section_lesson_path(section, lesson),
                   :data => {:confirm => "Are you sure?",
-                    :method => "delete"} %>
+                    :method => "delete"} %> |
+                    <%= link_to "Hide", chapter_path, data: {'js-hide-link' => true} %>
                 </span>
               </li>
+            </span>
             <% end %>
           </ul>
         <% else %>
-          <p>Currently there are no lessons for this <%= section.name %> </p>
+          <p>Currently there are no lessons for <%= section.name %> </p>
         <% end %>
 
       </li>
