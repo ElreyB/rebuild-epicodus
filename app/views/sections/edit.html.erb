@@ -1,3 +1,8 @@
 <h1>Edit Section</h1>
 
 <%= render 'form' %>
+
+
+<% content_for(:nav_footer) do %>
+  <li><%= link_to "Add lesson", new_section_lesson_path(@section) %></li>
+<% end %>

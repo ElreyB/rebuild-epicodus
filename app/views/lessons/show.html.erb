@@ -1,0 +1,16 @@
+<% content_for(:nav_courses) do %>
+  <li><a href="/">Courses</a></li>
+<% end %>
+
+<h2>
+  <%= @chapter.name %> / <%= @section.name %> / <%= @lesson.name %>
+</h2>
+
+<ul class="nav nav-tabs">
+  <li class="active">Text</li>
+</ul>
+<p><%= @lesson.text %></p>
+<br>
+<p><%= @lesson.text %></p>
+<br>
+<p><%= @lesson.text %></p>

@@ -2,4 +2,26 @@
   <li><a href="/">Courses</a></li>
 <% end %>
 
-<h1>(Week <%= section.number %>) <%= section.name %> </h1>
+<h1>(Week <%= @section.number %>) <%= @section.name %> </h1>
+
+
+<% if @section.lessons.any? %>
+  <ul>
+    <% @section.lessons.each do |lesson| %>
+      <li>
+        <span class="lesson-item">
+          (Week <%= lesson.number %>) <%= lesson.name %>
+        </span>
+        <span class="admin">
+          |
+          <%= link_to "Edit", edit_section_lesson_path(@section, lesson) %> |
+          <%= link_to "Delete", section_lesson_path(@section, lesson),
+          :data => {:confirm => "Are you sure?",
+            :method => "delete"} %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>Currently there are no lessons for this <%= @section.name %> </p>
+<% end %>
